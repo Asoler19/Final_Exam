@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notes</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500" rel="stylesheet">
+    
+   <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+    <div class="container-fluid wrapper">
+        <form method="post" action="/create-note">
+          <div class="container-fluid wrapper">
+              <div>
+                <h1>QuickNotes</h1>
+              </div>
+              <input required type="text" name="author" placeholder="Author">
+              <input required type="date" name="date">
+              <input required type="text" name="description" placeholder="Description">
+              <button class="btn btn-primary" type="submit">Create Note</button>
+              </div>
+            </div>    
+          </form>
+
+          <% notes.forEach(function(note){ %>
+            <div><%= note.author + ' ' + note.date + ' ' + note.description %></div>
+          <% }); %>
+    </div>
+
+
+    <div class="container-fluid wrapper">
+        <div>
+          <h1>All Notes</h1>
+        </div>
+        <div class="note-container">
+          <ul>
+            <% notes.forEach(function(note){ %>
+              <li>
+                <strong>Author:</strong> <%= note.author %> <br>
+                <strong>Date Created:</strong> <%= note.date %> <br>
+                <strong>Description:</strong> <%= note.description %>
+              </li>
+            <% }); %>
+          </ul>
+      </div>
+    
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
